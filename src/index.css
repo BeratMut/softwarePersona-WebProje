@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for light theme */
+body {
+  @apply bg-light text-text-primary font-sans;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-all duration-300;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-tertiary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Premium glass effect */
+.glass-effect {
+  @apply backdrop-blur-md bg-white/80;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply hover:border-accent/30 hover:shadow-card hover:shadow-accent/10;
+}
+
+/* Smooth drag animation */
+.dragging {
+  @apply rotate-1 shadow-hover opacity-90;
+}
+
+/* Pulsing animation for cards - infinite */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(59, 130, 246, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+}
+
+.pulse-hint {
+  animation: pulse-glow 2.5s infinite;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Column shadow and highlight effect */
+@keyframes column-highlight {
+  0%,
+  100% {
+    box-shadow:
+      0 4px 15px rgba(59, 130, 246, 0.08),
+      inset 0 1px 0 rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.12),
+      inset 0 1px 0 rgba(59, 130, 246, 0.15);
+  }
+}
+
+.column-enhanced {
+  animation: column-highlight 3s ease-in-out infinite;
+}
+
+/* Bounce cursor hint animation */
+@keyframes subtle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.bounce-hint {
+  animation: subtle-bounce 2s infinite;
+}
+
+/* Gradient info banner */
+.info-banner {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  @apply border-l-4 border-accent;
+}
+
+/* Column premium styling with gradient and glowing border */
+.column-premium {
+  background: linear-gradient(135deg, #f8f9fa 0%, #f3f4f6 100%);
+  border: 1.5px solid rgba(59, 130, 246, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.column-premium::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0),
+    rgba(59, 130, 246, 0.3),
+    rgba(59, 130, 246, 0)
+  );
+  pointer-events: none;
+}
+
+.column-premium::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0),
+    rgba(59, 130, 246, 0.2),
+    rgba(59, 130, 246, 0)
+  );
+  pointer-events: none;
+}
+
+/* Stats card styling */
+@keyframes stat-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1.5px solid rgba(59, 130, 246, 0.12);
+  @apply rounded-xl p-5 shadow-subtle transition-all;
+}
+
+.stat-card:hover {
+  border-color: rgba(59, 130, 246, 0.25);
+  @apply shadow-card;
+}
+
+.stat-value {
+  animation: stat-scale 2s ease-in-out infinite;
+}
+
+.stat-total {
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.stat-todo {
+  border-color: rgba(239, 68, 68, 0.15);
+}
+
+.stat-progress {
+  border-color: rgba(251, 146, 60, 0.15);
+}
+
+.stat-done {
+  border-color: rgba(34, 197, 94, 0.15);
+}
+
+.stat-label {
+  @apply text-xs font-semibold uppercase tracking-wider text-text-secondary;
+}
